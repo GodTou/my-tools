@@ -1,0 +1,404 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" My plugins
+Plugin 'AutoComplPop'
+Plugin 'bufexplorer.zip'
+Plugin 'matchit.zip' " match html 标签插件
+Plugin 'MarcWeber/vim-addon-mw-utils' "snippets 依赖
+Plugin 'tomtom/tlib_vim' "snippets 依赖
+Plugin 'garbas/vim-snipmate' "snippets 依赖
+Plugin 'honza/vim-snippets' "snippets 代码生成
+Plugin 'flazz/vim-colorschemes' "集成各配色主题
+Plugin 'rking/ag.vim' "ag 代码搜索工具
+Plugin 'christoomey/vim-tmux-navigator' "tmux跳转工具
+Plugin 'nono/jquery.vim' " jquery 语法 识别
+"Plugin 'airblade/vim-gitgutter' "显示出gitdiff
+Plugin 'pangloss/vim-javascript' "js 缩进
+Plugin 'mattn/emmet-vim' "html 快速输入
+" Git plugin hosted on GitHub
+Plugin 'https://github.com/stephpy/vim-php-cs-fixer.git' "php fix PSR-1 and PSR-2
+Plugin 'https://github.com/shawncplus/phpcomplete.vim.git' " php 补全增强
+Plugin 'https://github.com/tpope/vim-surround.git' " 加括号加引号
+Plugin 'https://github.com/majutsushi/tagbar.git' " 比taglist好用
+Plugin 'https://github.com/arnaud-lb/vim-php-namespace.git' " 生成namespace
+Plugin 'https://github.com/Lokaltog/vim-easymotion.git' " 快速移动光标
+Plugin 'https://github.com/alvan/vim-php-manual.git' " php手册查看器
+"Plugin 'https://github.com/wincent/command-t.git' " command-T
+Plugin 'https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git' "php注释生成插件
+Plugin 'https://github.com/bling/vim-airline.git' "状态行
+Plugin 'https://github.com/vim-scripts/taglist.vim.git'
+"Plugin 'https://github.com/ervandew/supertab.git' "tag 补全
+Plugin 'https://github.com/scrooloose/nerdcommenter.git' "注释代码
+Plugin 'https://github.com/Raimondi/delimitMate.git' "括号引号自动成对
+Plugin 'https://github.com/craigemery/vim-autotag.git' "自动刷新ctags
+Plugin 'https://github.com/scrooloose/syntastic.git' "语法检测
+Plugin 'https://github.com/scrooloose/nerdtree.git' "目录树
+Plugin 'https://github.com/kien/ctrlp.vim.git' "文件搜索
+Plugin 'https://github.com/terryma/vim-multiple-cursors.git' "类Sublime
+"Plugin 'https://github.com/etaoins/vim-volt-syntax.git' "volt 语法高亮支持
+Plugin 'https://github.com/rodjek/vim-puppet.git' "puppet 格式, 高亮支持
+Plugin 'https://github.com/StanAngeloff/php.vim.git' "php 5.3-5.6 comment 高亮
+Plugin 'https://github.com/maksimr/vim-jsbeautify.git' "format js css html
+"Plugin 'https://github.com/Valloric/YouCompleteMe.git' "自动补全
+Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste' "自动set paste工具
+" Plugin 'https://github.com/brookhong/DBGPavim.git' "断点高度工具
+Plugin 'https://github.com/ninovsnino/mark.vim.git' " 标记单词工具
+" Plugin 'godlygeek/tabular' "markdonw 依赖
+" Plugin 'plasticboy/vim-markdown' "Syntax highlighting, matching rules and mappings for the original Markdown and extensions
+" Plugin 'UltiSnips'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+syntax enable                " 打开语法高亮
+set background=dark
+"set background=light
+" colorscheme jelleybeans           " 灰褐色主题
+"colorscheme satori           " 灰褐色主题
+"colorscheme molokai           " 灰褐色主题
+"colorscheme desert           " 灰褐色主题
+"colorscheme evening           " 灰褐色主题
+" gruvbox去掉注释背景
+let g:gruvbox_italicize_comments = 0
+colorscheme gruvbox          " 灰褐色主题
+"colorscheme solarized          " 灰褐色主题
+syntax on                    " 开启文件类型侦测
+set guifont=Courier\ New:h10 " 字体 && 字号
+set tabstop=4                " 设置tab键的宽度
+set expandtab                " 设置tab为4个空格
+set shiftwidth=4             " 换行时行间交错使用4个空格
+set autoindent               " 自动对齐
+
+set cindent shiftwidth=4     " 自动缩进4空格
+set smartindent              " 智能自动缩进
+set nu!                      " 显示行号
+set showmatch                " 显示括号配对情况
+set ai                       " 自动缩进
+set ruler                    " 右下角显示光标位置的状态行
+set hlsearch                 " 开启高亮显示结果
+set incsearch                " 开启实时搜索功能
+set nowrapscan               " 搜索到文件两端时不重新搜索
+set vb t_vb=                 " 关闭提示音
+"set cursorline              " 突出显示当前行
+set hidden                   " 允许在有未保存的修改时切换缓冲区
+set list                     " 显示Tab符，使用一高亮竖线代替
+set listchars=tab:\|\ ,trail:-,extends:>,precedes:< ",eol:$
+set nobomb
+set foldmethod=manual
+set writebackup              " 设置无备份文件
+set nobackup
+"set autochdir                " 设定文件浏览器目录为当前目录
+"set nowrap                  " 设置不自动换行
+set foldmethod=syntax        " 选择代码折叠类型
+set foldlevel=100            " 禁止自动折叠
+set backspace=2              " 设置退格键可用
+set autoread                 " 自动更新已改变的文件
+
+set laststatus=2            " 开启状态栏信息
+" set cmdheight=2              " 命令行的高度，默认为1，这里设为2
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.png,*.jpg,*.gif,*.o,*.obj,*.git " vim忽略的文件，影响干扰，但也会忽略相关文件，要注意
+set t_Co=256
+
+" 每行超过80个的字符用下划线标示
+au BufRead,BufNewFile *.asm,*.c,*.cpp,*.java,*.cs,*.sh,*.lua,*.pl,*.pm,*.py,*.rb,*.hs,*.vim,*.php 2match Underlined /.\%81v/
+"set tags+=$HOME/projects/firstp2p/tags
+let mapleader = 'e'
+let g:mapleader = "e"
+
+" CommandT
+"let g:CommandTMaxHeight = 10
+"let g:CommandTFileScannernd = 'git'
+" for solarized
+let g:solarized_termcolors = 16
+let g:solarized_termtrans = 1
+
+" php doc
+inoremap <C-Y> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-Y> :call PhpDocSingle()<CR> 
+vnoremap <C-Y> :call PhpDocRange()<CR>
+
+" BufExplorer 插件相关配置
+map <leader>o :BufExplorer<cr>
+
+" nerdtree 插件相关配置
+map <leader>n :NERDTree<cr>
+
+"taglist
+let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口
+"打开 Tagbar tagBar貌似比 taglist好用
+"map <leader>xt :TlistToggle<cr>
+map <leader>l :TagbarToggle<cr>
+
+" php cs fix
+"if php-cs-fixer is in $PATH, you don't need to define line below
+let g:php_cs_fixer_path = "/usr/local/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_level = "all"                  " which level ?
+let g:php_cs_fixer_config = "default"             " configuration
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+" If you want to define specific fixers:
+" let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+" let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+nnoremap <leader>fd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <leader>ff :call PhpCsFixerFixFile()<CR><cr>:e %<cr>
+
+"namespace
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+inoremap <Leader>U <C-O>:call PhpExpandClass()<CR>
+noremap <Leader>U :call PhpExpandClass()<CR>
+
+" ctrlp
+let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_clear_cache_on_exit = 0
+"let g:ctrlp_user_command = 'find %s -type f | ag -v ".git|.jpg$|.swp$|.png$|.so$|.o$|.obj$"'
+"map <leader>o :CtrlPBuffer<CR>
+
+" vim-jsbeautify
+map <leader>hb :call HtmlBeautify()<cr>
+map <leader>jb :call JsBeautify()<cr>
+
+" ycm complete
+" 自动提示php与函数与关键字
+let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_collect_identifiers_from_tags_files = 1 " 读取tags文件
+"选择后自动关于窗口
+"let g:ycm_autoclose_preview_window_after_completion=1
+
+"解决代码生成与youcompleteme这间的冲突, 用c-j来触发生成代码
+imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
+
+" markdown
+"let g:vim_markdown_folding_disabled=1
+" DBGPavim 断点高度工具
+"let g:dbgPavimPort = 9009
+"let g:dbgPavimBreakAtEntry = 0
+" jquery
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+" syntastic 语法解析
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+" 因为html中有嵌入的php，忽略语法检查
+"let g:syntastic_ignore_files = ['\m\c\.html$']
+" mark.vim
+" n,r修改，不然冲突
+nmap <Leader>cA <Plug>MarkAllClear
+nmap <Leader>c <Plug>MarkClear
+nmap <Leader>gr <Plug>MarkRegex
+xmap <Leader>gr <Plug>MarkRegex
+" airline
+let g:airline#extensions#tabline#enabled = 1
+
+" php-manual
+"let g:php_manual_online_search_shortcut = '<leader>h'
+
+" ag.vim
+noremap <leader>a :Ag! <C-R>=expand("<cword>")<CR><CR><space>
+
+"快捷键ee搜索当前单词
+map ee :call FindInTaglistHere()<CR>
+map E :call FindInTaglistInsightHere()<CR>
+"匹配关键词的高亮设置
+highlight SEARCH_TAGS_NAME ctermbg=5 ctermfg=0
+
+let g:TagInsight_PreviewWindow = 0
+
+function! FindInTaglistHere()
+    call s:FindInTaglist(expand('<cword>'))
+endfunction
+
+function! FindInTaglistInsightHere()
+    call s:FindInTaglistInsight(expand('<cword>'))
+endfunction
+function! s:FindInTaglist(name)
+    if (empty(tagfiles()))
+        echohl WarningMsg | echo '没有找到tags文件, 请确认pwd下有tags文件' | echohl None
+        return
+    endif
+
+    let tags = taglist('^'.a:name.'$')
+    let tags = filter(tags, 'v:val["kind"] != "v"')
+
+    if (empty(tags))
+        echohl WarningMsg | echo '没有找到相关的定义' | echohl None
+        return
+    endif
+
+    "设置quickfix
+    let quickfix = []
+    for i in tags
+        if (str2nr(i.cmd) > 0 && strlen(i.cmd) == strlen(str2nr(i.cmd)))
+            call add(quickfix, {'lnum' : i.cmd, 'filename' : i.filename, 'text' : i.kind})
+        else
+            let pattern = strpart(i.cmd, 2, strlen(i.cmd) - 4)
+            let pattern = escape(pattern, '*[]')
+            call add(quickfix, {'pattern' : pattern, 'filename' : i.filename, 'text' : i.kind})
+        endif
+    endfor
+    call setqflist(quickfix)
+
+    tabnew
+    "tabdo cclose
+    copen
+    set nowrap
+    execute 'resize '.(len(quickfix) < 5 ? 5 : 10)
+    cfirst
+    execute 'normal zz'
+    call matchadd('SEARCH_TAGS_NAME', '\<'.a:name.'\>')
+endfunction
+
+function! s:FindInTaglistInsight(name)
+    if (empty(tagfiles()))
+        echohl WarningMsg | echo '没有找到tags文件, 请确认pwd下有tags文件' | echohl None
+        return
+    endif
+
+    let tags = taglist('^'.a:name.'$')
+    let tags = filter(tags, 'v:val["kind"] != "v"')
+
+    if (empty(tags))
+        echohl WarningMsg | echo '没有找到相关的定义' | echohl None
+        return
+    endif
+
+    call matchadd('SEARCH_TAGS_NAME', '\<'.a:name.'\>')
+
+    "设置quickfix
+    let quickfix = []
+    for i in tags
+        if (str2nr(i.cmd) > 0 && strlen(i.cmd) == strlen(str2nr(i.cmd)))
+            call add(quickfix, {'lnum' : i.cmd, 'filename' : i.filename, 'text' : i.kind})
+        else
+            let pattern = strpart(i.cmd, 2, strlen(i.cmd) - 4)
+            let pattern = escape(pattern, '*[]')
+            call add(quickfix, {'pattern' : pattern, 'filename' : i.filename, 'text' : i.kind})
+        endif
+    endfor
+    call setqflist(quickfix)
+
+    only
+    copen
+    set nowrap
+
+    vsplit
+    cfirst
+    let g:TagInsight_PreviewWindow = bufnr('%')
+    call matchadd('SEARCH_TAGS_NAME', '\<'.a:name.'\>')
+    execute 'normal zt'
+endfunction
+
+" ===================自定义的map key=====================
+"try | cd ~/projects/firstp2p | catch | endtry
+inoremap jj <ESC>
+nmap <leader>w :w!<cr>
+" 方便窗口间设置
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>R :source $MYVIMRC<cr>
+" 方便退出
+map <leader>q :q<ESC>
+map <leader>Q :qall<ESC>
+" 方便切屏
+map <leader>s :sp<cr><c-j>
+" 执行当前php文件
+map <leader>r :call RunCode()<cr>
+" 重新加载vimrc
+map <leader>R :source $MYVIMRC<cr>
+" phpunit执行当前php文件
+map <leader>f :!phpunit %<cr>
+" 检查当前php方法
+" map <cr> :!/usr/local/php5/bin/php -l %<cr>
+" 搜索
+"map <space> /
+" 到行首
+map 0 ^
+" 去除高亮
+"map <leader><cr> :noh<cr>
+" 高亮光标所在的当前单词
+"map <leader>d #*
+" php error_log 方便高度
+map <leader>k :set paste<cr>yawoerror_log(var_export("\n<esc>pa\033[32m=error::lzs===>>".__CLASS__."->".__FUNCTION__."<<========================>>>>> \033[0m \n", true), 3, "/tmp/lzs.log");<ESC>oerror_log(var_export($<esc>pa, true), 3, "/tmp/lzs.log");<esc>,w:set nopaste<cr>
+" 是否显示行号切换, 方便复制
+"nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+" 方便粘贴
+" map <leader>i :set paste!<CR>i
+" 快速打开tree与taglist 与 添加cscope
+"command! nl <leader>n<c-l>
+
+ "DBGPavim 断点高度工具
+"map <leader>dd :Dp<cr>
+"map <leader>dr <F5>
+"map <leader>dp <F12>
+"map <leader>ds <F6><F6>
+"map <leader>dn <F3>
+"map <leader>db <F10>
+
+" git merge tool 运用
+map <silent> <leader>1 :diffget 1<CR>:diffupdate<CR>
+map <silent> <leader>2 :diffget 2<CR>:diffupdate<CR>
+map <silent> <leader>3 :diffget 3<CR>:diffupdate<CR>
+map <silent> <leader>4 :diffget 4<CR>:diffupdate<CR>
+
+" easy motion
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"
+"
+func! RunCode()
+    exec "w"
+    if &filetype == "c" || &filetype == "cpp" || &filetype == "haskell"
+        exec "! %<.exe"
+    elseif &filetype == "java"
+        exec "!java %<"
+    elseif &filetype == "lua"
+        exec "!lua %<.lua"
+    elseif &filetype == "perl"
+        exec "!perl %<.pl"
+    elseif &filetype == "python"
+        exec "!python %<.py"
+    elseif &filetype == "php"
+        exec "!/usr/local/php5/bin/php %<.php"
+    elseif &filetype == "ruby"
+        exec "!ruby %<.rb"
+    endif
+endfunc
