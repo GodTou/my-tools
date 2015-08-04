@@ -82,10 +82,8 @@ set background=dark
 "colorscheme molokai           " 灰褐色主题
 "colorscheme desert           " 灰褐色主题
 "colorscheme evening           " 灰褐色主题
-" gruvbox去掉注释背景
-let g:gruvbox_italicize_comments = 0
-colorscheme gruvbox          " 灰褐色主题
-"colorscheme solarized          " 灰褐色主题
+let g:gruvbox_italicize_comments = 0  " gruvbox去掉注释背景
+colorscheme gruvbox          " 主题
 syntax on                    " 开启文件类型侦测
 set guifont=Courier\ New:h10 " 字体 && 字号
 set tabstop=4                " 设置tab键的宽度
@@ -117,6 +115,11 @@ set foldmethod=syntax        " 选择代码折叠类型
 set foldlevel=100            " 禁止自动折叠
 set backspace=2              " 设置退格键可用
 set autoread                 " 自动更新已改变的文件
+
+" 编码
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
 
 set laststatus=2            " 开启状态栏信息
 " set cmdheight=2              " 命令行的高度，默认为1，这里设为2
