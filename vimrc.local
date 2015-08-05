@@ -228,7 +228,7 @@ xmap <Leader>gr <Plug>MarkRegex
 let g:airline#extensions#tabline#enabled = 1
 
 " php-manual
-"let g:php_manual_online_search_shortcut = '<leader>h'
+let g:php_manual_online_search_shortcut = '<leader>h'
 
 " ag.vim
 noremap <leader>a :Ag! <C-R>=expand("<cword>")<CR><CR><space>
