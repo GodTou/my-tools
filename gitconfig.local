@@ -1,17 +1,24 @@
-[color]
-	ui = true
+[core]
+	editor = vim
+    ui = true
     diff = auto
+[user]
+	name = luzhengshuai
+	email = luzhengshuai@ucfgroup.com
 [merge]
 	tool = vimdiff
-[difftool]
-	prompt = false
+[color]
+    ui = true
+    diff = auto
 [diff]
-    external = git_diff_wrapper
-[pager]
-    diff =
-[user]
-    name = luzhengshuai
-    email = luzhengshuai@ucfgroup.com
-[hooks]
+    tool = vimdiff
+[difftool]
+    prompt = No
+[alias]
+	d = difftool
+	co = checkout
+    st = status
+    ci = commit
+    br = branch
 [init]
-    templatedir = ~/.git_personal
+	templatedir = ~/.git_personal
